@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire d'Achat - Ismail Boutique</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">Ismail Boutique</div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="formulaire-achat">
+            <h2>Formulaire d'Achat</h2>
+            <p>Vous avez choisi : <span id="produit-choisi"></span></p>
+            <form id="form-achat" onsubmit="validerFormulaire(event)">
+                <div class="form-group">
+                    <label for="nom">Nom :</label>
+                    <input type="text" id="nom" name="nom" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="carte-bancaire">Numéro de carte bancaire :</label>
+                    <input type="text" id="carte-bancaire" name="carte-bancaire" required>
+                </div>
+                <button type="submit">Soumettre</button>
+            </form>
+            <div id="message-confirmation"></div>
+
+            <div class="bouton-retour">
+                <a href="index.html" class="btn-retour">Retour à la boutique</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Ismail Boutique. Tous droits réservés.</p>
+    </footer>
+
+    <script>
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const produit = params.get('produit');
+            if (produit) {
+                document.getElementById('produit-choisi').textContent = produit;
+            }
+        };
+    </script>
+</body>
+</html>
+
+
